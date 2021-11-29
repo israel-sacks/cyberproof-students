@@ -1,0 +1,43 @@
+/* You can add global styles to this file, and also import other style files */
+/* .navbar-default .navbar-nav > .active{
+    color: #000; background: red;
+  }
+  .navbar-default .navbar-nav > .active > a, 
+  .navbar-default .navbar-nav > .active > a:hover, 
+  .navbar-default .navbar-nav > .active > a:focus {
+    color: #000;
+    background: red;
+  } */
+  li.active {
+    background-color: rgb(196, 191, 191);
+}
+
+/* .navbar > .navbar-nav >.nav-link > .active > a, 
+.navbar > .navbar-nav > .nav-link > .active > a:hover, 
+.navbar > .navbar-nav > .nav-link > .active > a:focus {
+    color: #000;
+    background: red;
+  }  */
+
+  .tableFixHead {
+    overflow-y: auto;
+    height: 550px;
+}
+
+    .tableFixHead thead th {
+        position: sticky;
+        top: 0;
+    }
+/* Just common table stuff. */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px 16px;
+}
+
+th {
+    background: #32a8a8;
+}

@@ -1,0 +1,26 @@
+<h4 class="bg-primary p-2 text-center text-white">Add Student Record</h4>
+<div class="container mt-5 w-50">
+    <div [formGroup]="createCourseForm" >
+    
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">CourseName</label>
+              <div class="col-sm-5">
+                    <input
+                        type="text"
+                        id="CourseName"
+                        autofocus
+                        formControlName="CourseName"
+                        class="form-control">
+                    <span
+                        *ngIf="createCourseForm.get('CourseName').invalid && createCourseForm.get('CourseName').touched"
+                        class="text-danger">
+                        This field required a Course Name!
+                    </span>
+                </div>
+            </div>
+           
+         <button (click)="onCreate()" class="m-2 btn btn-primary">Create</button>
+        <button (click)="onCancel()" class="m-2 btn btn-primary">Cancel</button>
+        </div>
+</div>
+

@@ -1,0 +1,37 @@
+<div class="mx-20 mt-5 container">
+    <h4 class="bg-primary text-center text-white">Courses List</h4>
+        <div  >
+            <button (click)="onCreate()" class="m-2 btn btn-primary">
+                Add Course</button>
+        </div>
+       
+        <div class="tableFixHead">
+            <table class="table table-striped table-sm table-bordered table-hover">
+                <thead>
+                    <tr><th class="th-sm">Course ID</th><th class="th-sm">Course Name</th><th class="th-sm"></th><th class="th-sm"></th></tr>
+                </thead>
+                <tbody>
+                        <tr *ngFor = 'let record of appService.lManageCourses'>
+                            <td >
+                                {{ record.id}}
+                            </td>
+                            <td>
+                                {{record.CourseName}}
+                            </td>
+                            <td>
+                                <div>
+                                <button (click)="onEdit(record.id)" class="btn btn-sm btn-primary"  
+                                >
+                                    Edit</button>
+                                </div>
+                            </td>
+                            <td  >
+                                <button (click)="onDelete(record.id)" class="btn btn-sm btn-danger">
+                                    Delete</button>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+  

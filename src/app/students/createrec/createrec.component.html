@@ -1,0 +1,56 @@
+<h4 class="bg-primary p-2 text-center text-white">Add Student Record</h4>
+<div class="container mt-5 w-50">
+    <div [formGroup]="createRecForm" >
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">StudentName</label>
+              <div class="col-sm-5">
+                    <input
+                        type="text"
+                        id="StudentName"
+                        autofocus
+                        formControlName="StudentName"
+                        class="form-control">
+                    <span
+                        *ngIf="createRecForm.get('StudentName').invalid && createRecForm.get('StudentName').touched"
+                        class="text-danger">
+                        This field required a Student Name!
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Course</label>
+                <div class="col-sm-5">
+                    
+                    <select  class="form-control" id="CourseId" formControlName="CourseId" [(ngModel)]='selectedValue' >
+                        <option  value="-1" [disabled]="true">Please Select</option>
+                        <option *ngFor="let course of this.appService.lManageCourses"
+                         [value]=course.id>{{course.CourseName}}</option>
+                    </select>
+                    <span
+                        *ngIf="createRecForm.get('CourseId').invalid && createRecForm.get('CourseId').touched"
+                        class="text-danger">
+                        This field is required!
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Marks</label>
+                <div class="col-sm-5">
+                    <input
+                    type="number" 
+                    min="0" max="100"
+                    id="Marks"
+                    formControlName="Marks"
+                    class="form-control">
+                    <span
+                    *ngIf="createRecForm.get('Marks').invalid && createRecForm.get('Marks').touched"
+                    class="text-danger">
+                    This field required a value between 0 and 100!
+                    </span>
+                </div>
+            </div>
+           
+         <button (click)="onCreate()" class="m-2 btn btn-primary">Create</button>
+        <button (click)="onCancel()" class="m-2 btn btn-primary">Cancel</button>
+        </div>
+</div>

@@ -1,0 +1,63 @@
+<h4 class="bg-primary p-2 text-center text-white">Edit Student Record</h4>
+<div class="container mt-5 w-50">
+    <div [formGroup]="editRecForm" >
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Student Id</label>
+                <div class="col-sm-5">
+                      <input
+                          type="text"
+                          id="id"
+                          [readonly]="true"
+                          formControlName="id"
+                          class="form-control">
+                  </div>
+              </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Student Name</label>
+              <div class="col-sm-5">
+                    <input
+                        type="text"
+                        id="StudentName"
+                        autofocus
+                        formControlName="StudentName"
+                        class="form-control">
+                    <span
+                        *ngIf="editRecForm.get('StudentName').invalid && editRecForm.get('StudentName').touched"
+                        class="text-danger">
+                        This field required a Student Name!
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Course</label>
+                <div class="col-sm-5">
+                    <select  class="form-control" id="CourseId" formControlName="CourseId" >
+                        <option *ngFor="let course of appService.lManageCourses" [value]=course.id>{{course.CourseName}}</option>
+                    </select>
+                    <span
+                        *ngIf="editRecForm.get('CourseId').invalid && editRecForm.get('CourseId').touched"
+                        class="text-danger">
+                        This field is required!
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Marks</label>
+                <div class="col-sm-5">
+                    <input
+                    type="number" 
+                    min="0" max="100"
+                    id="Marks"
+                    formControlName="Marks"
+                    class="form-control">
+                    <span
+                    *ngIf="editRecForm.get('Marks').invalid && editRecForm.get('Marks').touched"
+                    class="text-danger">
+                    This field required a value between 0 and 100!
+                    </span>
+                </div>
+            </div>
+         <button (click)="onUpdate()" class="m-2 btn btn-primary">Update</button>
+        <button (click)="onCancel()" class="m-2 btn btn-primary">Cancel</button>
+    </div>
+</div>
